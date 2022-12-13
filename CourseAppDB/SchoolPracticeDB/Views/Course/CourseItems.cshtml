@@ -1,0 +1,63 @@
+﻿@model List<Course>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+    <p>See all the <a asp-controller="Course" asp-action="GetAllCourses">courses</a>.</p>
+</div>
+
+<div class="row">
+
+    <div class="col-2">
+        <!-- link that allows the creation of a new db object-->
+        <a asp-controller="Course" asp-action="GetAddCourseRequest">Add new Course</a>
+    </div>
+
+    <div class="col-8">
+        <p>Here's some text</p>
+    </div>
+
+</div>
+
+
+<!-- Shows list of parties and their associated data -->
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <div class="row">
+            <th class="col-4">Name</th>
+            <th class="col-4">Credit Value</th>
+            <th class="col-4">Action</th>
+            </div>
+
+        </tr>
+    </thead>
+    <tbody>
+        <!-- loop through our list of parties. For each party display their info-->
+        <!-- Also include links that allow the user to edit and manage each party-->
+        @foreach (var course in Model)
+        {
+
+            <tr>
+                <td>@course.CourseName</td>
+                <td>@course.Credits</td>
+                <td>
+
+                    <a asp-controller="Course" asp-action="GetCourseById" asp-route-id="@course.CourseId">Students</a>
+                    <span class="mx-1">|</span>
+                    <a asp-controller="Course" asp-action="GetEditRequestById" asp-route-id="@course.CourseId">Edit</a>
+                    <span class="mx-1">|</span>
+                    <a asp-controller="Course" asp-action="GetSoftDeleteVendorById" asp-route-id="@course.CourseId">Delete</a>
+
+                    <!-- call on partial view for actions-->
+                    @*<partial name="_CourseActionLinks" model="@course" />*@
+                </td>
+            </tr>
+
+
+        }
+    </tbody>
+
+</table>

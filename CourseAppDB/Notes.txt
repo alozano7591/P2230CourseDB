@@ -1,0 +1,21 @@
+School DB:
+This is going to be a very basic db of students and classes
+
+Each Course will have many students, and a student can have many courses
+
+Each course has many books. A book can belong to only one course
+
+
+
+Diagram something like this:
+
+
+  book
+    |
+    |
+ 1 course to many
+    |                           
+  Course <---(has many)--> students
+
+
+courses linked to students thru enrollment
