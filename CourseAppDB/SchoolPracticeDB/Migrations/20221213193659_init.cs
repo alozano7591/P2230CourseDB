@@ -15,8 +15,8 @@ namespace SchoolPracticeDB.Migrations
                 {
                     CourseId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CourseName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Credits = table.Column<int>(type: "int", nullable: true)
+                    CourseName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Credits = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -29,9 +29,9 @@ namespace SchoolPracticeDB.Migrations
                 {
                     StudentId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -44,9 +44,9 @@ namespace SchoolPracticeDB.Migrations
                 {
                     BookId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Author = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    YearPublished = table.Column<int>(type: "int", nullable: true),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Author = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    YearPublished = table.Column<int>(type: "int", nullable: false),
                     CourseId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -85,18 +85,6 @@ namespace SchoolPracticeDB.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Books",
-                columns: new[] { "BookId", "Author", "CourseId", "Title", "YearPublished" },
-                values: new object[,]
-                {
-                    { 1, "Dave Brooks", null, "Math 101", 2019 },
-                    { 2, "William Books", null, "English Writing for dummies", 2009 },
-                    { 3, "Bumba York", null, "Holy Stuff", 2011 },
-                    { 4, "Dave Brooks", null, "Crazy George", 2020 },
-                    { 5, "Dave Brooks", null, "Huehue 1999", 2011 }
-                });
-
-            migrationBuilder.InsertData(
                 table: "Courses",
                 columns: new[] { "CourseId", "CourseName", "Credits" },
                 values: new object[,]
@@ -116,6 +104,18 @@ namespace SchoolPracticeDB.Migrations
                     { 3, new DateTime(2012, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), "Maggie", "Simpson" },
                     { 4, new DateTime(1988, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), "Homer", "Simpson" },
                     { 5, new DateTime(2001, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bobby", "Grownie" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Books",
+                columns: new[] { "BookId", "Author", "CourseId", "Title", "YearPublished" },
+                values: new object[,]
+                {
+                    { 1, "Dave Brooks", 1, "Math 101", 2019 },
+                    { 2, "William Books", 2, "English Writing for dummies", 2009 },
+                    { 3, "Bumba York", 2, "Holy Stuff", 2011 },
+                    { 4, "Dave Brooks", 1, "Crazy George", 2020 },
+                    { 5, "Dave Brooks", 3, "Huehue 1999", 2011 }
                 });
 
             migrationBuilder.InsertData(

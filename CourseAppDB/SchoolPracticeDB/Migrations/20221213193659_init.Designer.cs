@@ -12,7 +12,7 @@ using SchoolPracticeDB.Entities;
 namespace SchoolPracticeDB.Migrations
 {
     [DbContext(typeof(CourseDbContext))]
-    [Migration("20221213032828_init")]
+    [Migration("20221213193659_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,15 +33,18 @@ namespace SchoolPracticeDB.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("BookId"), 1L, 1);
 
                     b.Property<string>("Author")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("CourseId")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("YearPublished")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.HasKey("BookId");
@@ -55,6 +58,7 @@ namespace SchoolPracticeDB.Migrations
                         {
                             BookId = 1,
                             Author = "Dave Brooks",
+                            CourseId = 1,
                             Title = "Math 101",
                             YearPublished = 2019
                         },
@@ -62,6 +66,7 @@ namespace SchoolPracticeDB.Migrations
                         {
                             BookId = 2,
                             Author = "William Books",
+                            CourseId = 2,
                             Title = "English Writing for dummies",
                             YearPublished = 2009
                         },
@@ -69,6 +74,7 @@ namespace SchoolPracticeDB.Migrations
                         {
                             BookId = 3,
                             Author = "Bumba York",
+                            CourseId = 2,
                             Title = "Holy Stuff",
                             YearPublished = 2011
                         },
@@ -76,6 +82,7 @@ namespace SchoolPracticeDB.Migrations
                         {
                             BookId = 4,
                             Author = "Dave Brooks",
+                            CourseId = 1,
                             Title = "Crazy George",
                             YearPublished = 2020
                         },
@@ -83,6 +90,7 @@ namespace SchoolPracticeDB.Migrations
                         {
                             BookId = 5,
                             Author = "Dave Brooks",
+                            CourseId = 3,
                             Title = "Huehue 1999",
                             YearPublished = 2011
                         });
@@ -97,9 +105,11 @@ namespace SchoolPracticeDB.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CourseId"), 1L, 1);
 
                     b.Property<string>("CourseName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("Credits")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.HasKey("CourseId");
@@ -192,12 +202,15 @@ namespace SchoolPracticeDB.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StudentId"), 1L, 1);
 
                     b.Property<DateTime?>("DateOfBirth")
+                        .IsRequired()
                         .HasColumnType("datetime2");
 
                     b.Property<string>("FirstName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("StudentId");

@@ -45,9 +45,9 @@
                 <td>@course.Credits</td>
                 <td>
 
-                    <a asp-controller="Course" asp-action="GetCourseById" asp-route-id="@course.CourseId">Students</a>
+                    <a asp-controller="Course" asp-action="GetCourseById" asp-route-id="@course.CourseId">Details</a>
                     <span class="mx-1">|</span>
-                    <a asp-controller="Course" asp-action="GetEditRequestById" asp-route-id="@course.CourseId">Edit</a>
+                    <a asp-controller="Course" asp-action="GetEditRequestCourseById" asp-route-id="@course.CourseId">Edit</a>
                     <span class="mx-1">|</span>
                     <a asp-controller="Course" asp-action="GetSoftDeleteVendorById" asp-route-id="@course.CourseId">Delete</a>
 

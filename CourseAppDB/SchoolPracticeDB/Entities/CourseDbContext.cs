@@ -33,11 +33,11 @@ namespace SchoolPracticeDB.Entities
 
             //Seed books
             modelBuilder.Entity<Book>().HasData(
-                new Book() { BookId = 1, Title = "Math 101", Author = "Dave Brooks", YearPublished = 2019},
-                new Book() { BookId = 2, Title = "English Writing for dummies", Author = "William Books", YearPublished = 2009 },
-                new Book() { BookId = 3, Title = "Holy Stuff", Author = "Bumba York", YearPublished = 2011 },
-                new Book() { BookId = 4, Title = "Crazy George", Author = "Dave Brooks", YearPublished = 2020 },
-                new Book() { BookId = 5, Title = "Huehue 1999", Author = "Dave Brooks", YearPublished = 2011 }
+                new Book() { BookId = 1, Title = "Math 101", Author = "Dave Brooks", YearPublished = 2019, CourseId = 1},
+                new Book() { BookId = 2, Title = "English Writing for dummies", Author = "William Books", YearPublished = 2009, CourseId = 2 },
+                new Book() { BookId = 3, Title = "Holy Stuff", Author = "Bumba York", YearPublished = 2011 , CourseId = 2 },
+                new Book() { BookId = 4, Title = "Crazy George", Author = "Dave Brooks", YearPublished = 2020 , CourseId = 1},
+                new Book() { BookId = 5, Title = "Huehue 1999", Author = "Dave Brooks", YearPublished = 2011 , CourseId = 3 }
 
                 );
 

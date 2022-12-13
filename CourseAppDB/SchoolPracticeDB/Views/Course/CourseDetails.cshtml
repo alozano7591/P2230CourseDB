@@ -1,0 +1,88 @@
+﻿@model CourseDetailsViewModel
+
+@{
+    ViewData["Title"] = Model.ActiveCourse.CourseName;
+}
+
+<div class="row">
+    <p>
+        @*<em>@Model.ActiveCourse.CourseName</em> is a <a href="#">@Model.ActiveCourse.Genre.Name</a>
+        that debuted in @Model.ActiveCourse.Year.*@
+
+        <em>@Model.ActiveCourse.CourseName</em> is a course worth @Model.ActiveCourse.Credits credits.
+    </p>
+</div>
+<div class="row">
+    <div class="col-sm-8">
+        @if(Model.ActiveCourse.Enrollments != null)
+        {
+            if(Model.ActiveCourse.Enrollments.Count > 0)
+            {
+                <h6>The mark average for this course is (Average rating: @Model.AverageMark?.ToString("0.0")):</h6>
+            }
+        }
+        
+        <p>The books apart of the learning material for this course</p>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Book Title</th>
+                    <th>Author</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var book in Model.ActiveCourse.Books)
+                {
+                    <tr>
+                        <td>@book.Title</td>
+                        <td>@book.Author</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-sm-4">
+        <h6>Students:</h6>
+        <ul>
+            @foreach (Enrollment enrollment in Model.ActiveCourse.Enrollments)
+            {
+                <li><a href="#">@enrollment.Student.FullName</a></li>
+            }
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <h6>Add a new book:</h6>
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <form class="row" asp-controller="Course"
+          asp-action="AddBookToCourseById" asp-route-id="@Model.ActiveCourse.CourseId"
+          method="post" enctype="application/x-www-form-urlencoded">
+        <div class="col-sm-4">
+            <label class="visually-hidden" asp-for="NewBook.Title">Title</label>
+            <div class="input-group">
+                <div class="input-group-text">Title</div>
+                <input type="text" class="form-control" asp-for="NewBook.Title" />
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <label class="visually-hidden" asp-for="NewBook.Author">Author</label>
+            <div class="input-group">
+                <div class="input-group-text">Comments</div>
+                <input type="text" class="form-control" asp-for="NewBook.Author" />
+            </div>
+        </div>
+
+        <div class="col-sm-2">
+            <label class="visually-hidden" asp-for="NewBook.YearPublished">YearPublished</label>
+            <div class="input-group">
+                <div class="input-group-text">YearPublished</div>
+                <input type="text" class="form-control" asp-for="NewBook.YearPublished" />
+            </div>
+        </div>
+
+        <div class="col-sm-2">
+            <button type="submit" class="btn btn-primary">Add Book</button>
+        </div>
+    </form>
+</div>
