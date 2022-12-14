@@ -17,18 +17,6 @@
         <input type="text" asp-for="ActiveCourse.Credits" class="form-control" />
     </div>
 
-@*    <div class="form-group">
-        <label asp-for="ActiveMovie.GenreId">Genre</label>
-        <!-- add a drop-down for genre options: -->
-        <select asp-for="ActiveMovie.GenreId" class="form-control">
-            <option value="">Select a genre..</option>
-            @foreach (Genre g in Model.Genres)
-            {
-                <option value="@g.GenreId">@g.Name</option>
-            }
-        </select>
-    </div>*@
-
     <button type="submit" class="btn btn-primary">Add</button>
     <a asp-controller="Course" asp-action="GetAllCourses" class="btn btn-primary">Cancel</a>
 </form>

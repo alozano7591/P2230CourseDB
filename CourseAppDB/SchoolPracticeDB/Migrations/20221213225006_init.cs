@@ -99,10 +99,10 @@ namespace SchoolPracticeDB.Migrations
                 columns: new[] { "StudentId", "DateOfBirth", "FirstName", "LastName" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2010, 5, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bart", "Simpson" },
-                    { 2, new DateTime(2011, 11, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), "Lisa", "Simpson" },
-                    { 3, new DateTime(2012, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), "Maggie", "Simpson" },
-                    { 4, new DateTime(1988, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), "Homer", "Simpson" },
+                    { 1, new DateTime(2010, 5, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), "Frank", "Brown" },
+                    { 2, new DateTime(2011, 11, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), "Laura", "White" },
+                    { 3, new DateTime(2012, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), "Brian", "Brampton" },
+                    { 4, new DateTime(1988, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), "Sarah", "Thompson" },
                     { 5, new DateTime(2001, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bobby", "Grownie" }
                 });
 

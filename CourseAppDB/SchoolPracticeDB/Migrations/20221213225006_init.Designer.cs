@@ -12,7 +12,7 @@ using SchoolPracticeDB.Entities;
 namespace SchoolPracticeDB.Migrations
 {
     [DbContext(typeof(CourseDbContext))]
-    [Migration("20221213193659_init")]
+    [Migration("20221213225006_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -222,29 +222,29 @@ namespace SchoolPracticeDB.Migrations
                         {
                             StudentId = 1,
                             DateOfBirth = new DateTime(2010, 5, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FirstName = "Bart",
-                            LastName = "Simpson"
+                            FirstName = "Frank",
+                            LastName = "Brown"
                         },
                         new
                         {
                             StudentId = 2,
                             DateOfBirth = new DateTime(2011, 11, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FirstName = "Lisa",
-                            LastName = "Simpson"
+                            FirstName = "Laura",
+                            LastName = "White"
                         },
                         new
                         {
                             StudentId = 3,
                             DateOfBirth = new DateTime(2012, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FirstName = "Maggie",
-                            LastName = "Simpson"
+                            FirstName = "Brian",
+                            LastName = "Brampton"
                         },
                         new
                         {
                             StudentId = 4,
                             DateOfBirth = new DateTime(1988, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FirstName = "Homer",
-                            LastName = "Simpson"
+                            FirstName = "Sarah",
+                            LastName = "Thompson"
                         },
                         new
                         {

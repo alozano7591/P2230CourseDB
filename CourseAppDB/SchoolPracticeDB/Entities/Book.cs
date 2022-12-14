@@ -21,7 +21,7 @@ namespace SchoolPracticeDB.Entities
         public int? CourseId { get; set; }
 
         //Nav to course
-        public Course Course { get; set; }
+        public Course? Course { get; set; }
 
     }
 }

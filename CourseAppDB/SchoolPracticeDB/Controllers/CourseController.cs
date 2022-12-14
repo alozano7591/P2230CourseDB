@@ -5,6 +5,7 @@ using System;
 using System.IO;
 using SchoolPracticeDB.Entities;
 using SchoolPracticeDB.Models;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace SchoolPracticeDB.Controllers
 {
@@ -106,7 +107,7 @@ namespace SchoolPracticeDB.Controllers
 
         }
 
-        [HttpGet("/courses/{id}/details")]
+        [HttpGet("/courses/{id}")]
         public IActionResult GetCourseById(int id)
         {
             var course = _courseDbContext.Courses
@@ -121,6 +122,52 @@ namespace SchoolPracticeDB.Controllers
             };
 
             return View("CourseDetails", courseViewModel);
+        }
+
+
+        //[HttpPost("/courses/{id}/books")]
+        //public IActionResult AddBookToCourseById(int id, CourseDetailsViewModel courseDetailsViewModel)
+        //{
+
+        //    var course = _courseDbContext.Courses.Include(c => c.Books).Include(c => c.Enrollments).ThenInclude(e => e.Student).Where(c => c.CourseId == id).FirstOrDefault();
+
+        //    course.Books.Add(courseDetailsViewModel.NewBook);
+        //    _courseDbContext.SaveChanges();
+        //    return RedirectToAction("GetCourseById", "Course", new { id = id });
+
+        //}
+
+
+        [HttpPost("/courses/{id}/books")]
+        public IActionResult AddBookToCourseById(int id, CourseDetailsViewModel courseDetailsViewModel)
+        {
+
+            var course = _courseDbContext.Courses
+                .Include(c => c.Books)
+                .Include(c => c.Enrollments).ThenInclude(e => e.Student)
+                .Where(c => c.CourseId == id)
+                .FirstOrDefault();
+
+            if (ModelState.IsValid)
+            {
+                course.Books.Add(courseDetailsViewModel.NewBook);
+                _courseDbContext.SaveChanges();
+                return RedirectToAction("GetCourseById", "Course", new { id = id });
+            }
+            else
+            {
+
+                courseDetailsViewModel.ActiveCourse = _courseDbContext.Courses
+                        .Include(c => c.Books)
+                        .Include(c => c.Enrollments).ThenInclude(e => e.Student)
+                        .Where(c => c.CourseId == id)
+                        .FirstOrDefault();
+
+                courseDetailsViewModel.NewBook.Course = courseDetailsViewModel.ActiveCourse;
+
+                return View("CourseDetails", courseDetailsViewModel);
+            }
+
         }
     }
 }

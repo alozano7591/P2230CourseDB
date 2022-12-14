@@ -54,25 +54,25 @@ namespace SchoolPracticeDB.Entities
             modelBuilder.Entity<Student>().HasData(
                 new Student() { 
                     StudentId = 1,
-                    FirstName = "Bart", 
-                    LastName = "Simpson", 
+                    FirstName = "Frank", 
+                    LastName = "Brown", 
                     DateOfBirth = new DateTime(2010, 05, 09)},
                 new Student() {
                     StudentId = 2,
-                    FirstName = "Lisa",
-                    LastName = "Simpson",
+                    FirstName = "Laura",
+                    LastName = "White",
                     DateOfBirth = new DateTime(2011, 11, 04)
                 },
                 new Student() { 
                     StudentId = 3,
-                    FirstName = "Maggie",
-                    LastName = "Simpson",
+                    FirstName = "Brian",
+                    LastName = "Brampton",
                     DateOfBirth = new DateTime(2012, 01, 02)
                 },
                 new Student() { 
                     StudentId = 4,
-                    FirstName = "Homer",
-                    LastName = "Simpson",
+                    FirstName = "Sarah",
+                    LastName = "Thompson",
                     DateOfBirth = new DateTime(1988, 01, 19)
                 },
                 new Student()

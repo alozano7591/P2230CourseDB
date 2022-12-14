@@ -55,8 +55,8 @@
     <h6>Add a new book:</h6>
     <div asp-validation-summary="All" class="text-danger"></div>
     <form class="row" asp-controller="Course"
-          asp-action="AddBookToCourseById" asp-route-id="@Model.ActiveCourse.CourseId"
-          method="post" enctype="application/x-www-form-urlencoded">
+            asp-action="AddBookToCourseById" asp-route-id="@Model.ActiveCourse.CourseId"
+            method="post" enctype="application/x-www-form-urlencoded">
         <div class="col-sm-4">
             <label class="visually-hidden" asp-for="NewBook.Title">Title</label>
             <div class="input-group">
@@ -68,18 +68,25 @@
         <div class="col-sm-4">
             <label class="visually-hidden" asp-for="NewBook.Author">Author</label>
             <div class="input-group">
-                <div class="input-group-text">Comments</div>
+                <div class="input-group-text">Author</div>
                 <input type="text" class="form-control" asp-for="NewBook.Author" />
             </div>
         </div>
 
         <div class="col-sm-2">
-            <label class="visually-hidden" asp-for="NewBook.YearPublished">YearPublished</label>
+            <label class="visually-hidden" asp-for="NewBook.YearPublished">Year</label>
             <div class="input-group">
-                <div class="input-group-text">YearPublished</div>
+                <div class="input-group-text">Year</div>
                 <input type="text" class="form-control" asp-for="NewBook.YearPublished" />
             </div>
         </div>
+
+        <!-- Seems to only work when adding hidden info for activecourse name and credits -->
+        <input type="hidden" asp-for="ActiveCourse.CourseName" />
+        <input type="hidden" asp-for="ActiveCourse.Credits" />
+
+        <!-- Add th Id (i.e. PK) field as a hidden input element: -->
+        <input type="hidden" asp-for="ActiveCourse.CourseId" />
 
         <div class="col-sm-2">
             <button type="submit" class="btn btn-primary">Add Book</button>
