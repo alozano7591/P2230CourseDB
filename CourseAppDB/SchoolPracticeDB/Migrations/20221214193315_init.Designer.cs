@@ -12,7 +12,7 @@ using SchoolPracticeDB.Entities;
 namespace SchoolPracticeDB.Migrations
 {
     [DbContext(typeof(CourseDbContext))]
-    [Migration("20221213225006_init")]
+    [Migration("20221214193315_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
