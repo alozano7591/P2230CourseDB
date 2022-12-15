@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using SchoolPracticeDB.Entities;
 using System.Text.RegularExpressions;
+using SchoolPracticeDB.Models;
 
 namespace Courses.Tests
 {
@@ -67,6 +68,24 @@ namespace Courses.Tests
             //Assert
             Assert.Equal(88, averageGrade);
         }
+
+        //[Fact]
+        //public void TestStudentAgeCheck()
+        //{
+        //    //Arrange
+        //    Student s1 = new Student()
+        //    {
+        //        FirstName = "Bob",
+        //        LastName = "Brown",
+        //        DateOfBirth = new DateTime(2012, 01, 01),
+        //        Enrollments = new List<Enrollment>()   //NEEDS LIST TO ADD MARKS TO!
+        //    };
+
+            
+
+        //    //Assert
+        //    Assert.True(false, MinimumAgeAttribute(s1.DateOfBirth));
+        //}
 
     }
 }

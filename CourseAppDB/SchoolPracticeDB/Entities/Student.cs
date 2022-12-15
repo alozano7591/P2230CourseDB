@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using SchoolPracticeDB.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace SchoolPracticeDB.Entities
 {
@@ -21,8 +22,9 @@ namespace SchoolPracticeDB.Entities
             }
         }
 
-        [Required(ErrorMessage = "Please enter a year.")]
         //[Range(1850, int.MaxValue, ErrorMessage = "Year must be after 1850.")]
+        [Required(ErrorMessage = "Please enter a year.")]
+        [MinimumAge(12, ErrorMessage = "Must be 12 or older")]
         public DateTime? DateOfBirth { get; set; }
 
         public ICollection<Enrollment>? Enrollments { get; set; }

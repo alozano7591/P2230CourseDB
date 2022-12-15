@@ -1,0 +1,29 @@
+﻿@model StudentViewModel
+
+@{
+    ViewData["Title"] = "Add A Crazy Student";
+}
+
+<form asp-controller="Student" asp-action="AddNewStudent" method="post" enctype="application/x-www-form-urlencoded">
+    <div class="text-danger" asp-validation-summary="All"></div>
+
+    <!-- Our partial view addition -->
+    <div class="form-group">
+        <label asp-for="ActiveStudent.FirstName">First Name</label>
+        <input type="text" asp-for="ActiveStudent.FirstName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ActiveStudent.LastName">Last Name</label>
+        <input type="text" asp-for="ActiveStudent.LastName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ActiveStudent.DateOfBirth">Date of Birth</label>
+        <input type="text" asp-for="ActiveStudent.DateOfBirth" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add</button>
+    <a asp-controller="Student" asp-action="GetAllStudents" class="btn btn-primary">Cancel</a>
+</form>
+
