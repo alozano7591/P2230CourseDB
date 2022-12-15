@@ -5,7 +5,7 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SchoolPracticeDB", "SchoolPracticeDB\SchoolPracticeDB.csproj", "{481510B8-3703-48D9-9E71-4C125DD2EC08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Courses.Tests", "Courses.Tests\Courses.Tests.csproj", "{B5B1F11A-0489-4E80-921E-88558A966F9D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Courses.Tests", "Courses.Tests\Courses.Tests.csproj", "{B5B1F11A-0489-4E80-921E-88558A966F9D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

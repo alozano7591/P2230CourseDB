@@ -1,0 +1,10 @@
+﻿@model TopRatedStudentsViewModel
+
+<h3>Top-Rated Students</h3>
+<h6>With a rating of at least @Model.LowestAverage</h6>
+<ul>
+    @for (int i = 0; i < Math.Min(Model.NumberOfStudentsToDisplay, Model.Students.Count); i++)
+    {
+            <li>@Model.Students[i].FullName (@Model.Students[i].Enrollments.Average(e => e.Grade))</li>
+    }
+</ul>

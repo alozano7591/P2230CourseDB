@@ -5,7 +5,7 @@
 }
 
 <div>
-    <p>See all the <a asp-controller="Course" asp-action="GetAllCourses">courses</a>.</p>
+    <p>See all the <a asp-controller="Course" asp-action="GetAllStudents">courses</a>.</p>
 </div>
 
 <div class="row">
@@ -21,48 +21,58 @@
 
 </div>
 
+<div class="row">
+    <div class="col-sm-9"> 
 
-<!-- Shows list of parties and their associated data -->
-<table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <div class="row">
-            <th class="col-2">First Name</th>
-            <th class="col-2">Last Name</th>
-            <th class="col-2">Email</th>
-            <th class="col-2">Age</th>
-            <th class="col-2">Actions</th>
-            </div>
+        <!-- Shows list of parties and their associated data -->
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <div class="row">
+                    <th class="col-2">First Name</th>
+                    <th class="col-2">Last Name</th>
+                    <th class="col-2">Email</th>
+                    <th class="col-2">Age</th>
+                    <th class="col-2">Actions</th>
+                    </div>
 
-        </tr>
-    </thead>
-    <tbody>
-        <!-- loop through our list of parties. For each party display their info-->
-        <!-- Also include links that allow the user to edit and manage each party-->
-        @foreach (var course in Model)
-        {
+                </tr>
+            </thead>
+            <tbody>
+                <!-- loop through our list of parties. For each party display their info-->
+                <!-- Also include links that allow the user to edit and manage each party-->
+                @foreach (var course in Model)
+                {
 
-            <tr>
-                <td>@course.FirstName</td>
-                <td>@course.LastName</td>
-                <td>@course.Email</td>
-                <td>
-                    @course.DateOfBirth?.ToString("dd/MM/yyyy")</td>
-                <td>
+                    <tr>
+                        <td>@course.FirstName</td>
+                        <td>@course.LastName</td>
+                        <td>@course.Email</td>
+                        <td>
+                            @course.DateOfBirth?.ToString("dd/MM/yyyy")</td>
+                        <td>
 
-                    <a asp-controller="Student" asp-action="GetStudentById" asp-route-id="@course.StudentId">Details</a>
-                    <span class="mx-1">|</span>
-                    <a asp-controller="Student" asp-action="GetEditRequestStudentById" asp-route-id="@course.StudentId">Edit</a>
-                    <span class="mx-1">|</span>
-                    <a asp-controller="Student" asp-action="DeleteStudentById" asp-route-id="@course.StudentId">Delete</a>
+                            <a asp-controller="Student" asp-action="GetStudentById" asp-route-id="@course.StudentId">Details</a>
+                            <span class="mx-1">|</span>
+                            <a asp-controller="Student" asp-action="GetEditRequestStudentById" asp-route-id="@course.StudentId">Edit</a>
+                            <span class="mx-1">|</span>
+                            <a asp-controller="Student" asp-action="DeleteStudentById" asp-route-id="@course.StudentId">Delete</a>
 
-                    <!-- call on partial view for actions-->
-                    @*<partial name="_CourseActionLinks" model="@course" />*@
-                </td>
-            </tr>
+                            <!-- call on partial view for actions-->
+                            @*<partial name="_CourseActionLinks" model="@course" />*@
+                        </td>
+                    </tr>
 
 
-        }
-    </tbody>
+                }
+            </tbody>
 
-</table>
+        </table>
+
+    </div>
+</div>
+
+<div class="col-sm-3">
+    <!-- Here we use our VC to dislay at most 5 movies of avg rating 3 or above: -->
+    <vc:top-rated-students lowest-average="70" number-of-students-to-display="3" />
+</div>
