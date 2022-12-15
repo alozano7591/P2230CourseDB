@@ -1,0 +1,7 @@
+﻿@model Course
+
+<a asp-controller="Course" asp-action="GetCourseById" asp-route-id="@Model.CourseId">Details</a>
+<span class="mx-1">|</span>
+<a asp-controller="Course" asp-action="GetEditRequestCourseById" asp-route-id="@Model.CourseId">Edit</a>
+<span class="mx-1">|</span>
+<a asp-controller="Course" asp-action="DeleteCourseById" asp-route-id="@Model.CourseId">Delete</a>

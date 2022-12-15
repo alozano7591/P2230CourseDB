@@ -6,27 +6,8 @@
 <form asp-controller="Course" asp-action="EditCourse" method="post" enctype="application/x-www-form-urlencoded">
     <div class="text-danger" asp-validation-summary="All"></div>
 
-    <div class="form-group">
-        <label asp-for="ActiveCourse.CourseName">Couse Name</label>
-        <input type="text" asp-for="ActiveCourse.CourseName" class="form-control" />
-    </div>
-
-    <div class="form-group">
-        <label asp-for="ActiveCourse.Credits">Credits</label>
-        <input type="text" asp-for="ActiveCourse.Credits" class="form-control" />
-    </div>
-
-    @*    <div class="form-group">
-    <label asp-for="ActiveMovie.GenreId">Genre</label>
-    <!-- add a drop-down for genre options: -->
-    <select asp-for="ActiveMovie.GenreId" class="form-control">
-    <option value="">Select a genre..</option>
-    @foreach (Genre g in Model.Genres)
-    {
-    <option value="@g.GenreId">@g.Name</option>
-    }
-    </select>
-    </div>*@
+    <!-- Our partial view addition -->
+    <partial name="_CourseForm" model="@Model" />
 
     <input type="hidden" asp-for="ActiveCourse.CourseId" />
 
