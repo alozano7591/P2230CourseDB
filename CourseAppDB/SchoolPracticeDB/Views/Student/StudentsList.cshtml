@@ -1,0 +1,66 @@
+﻿@model List<Student>
+
+@{
+    ViewData["Title"] = "Students List";
+}
+
+<div>
+    <p>See all the <a asp-controller="Course" asp-action="GetAllStudents">courses</a>.</p>
+</div>
+
+<div class="row">
+
+    <div class="col-2">
+        <!-- link that allows the creation of a new db object-->
+        <a asp-controller="Course" asp-action="GetAddStudentRequest">Add new student</a>
+    </div>
+
+    <div class="col-8">
+        <p>Here's some text</p>
+    </div>
+
+</div>
+
+
+<!-- Shows list of parties and their associated data -->
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <div class="row">
+            <th class="col-3">First Name</th>
+            <th class="col-3">Last Name</th>
+            <th class="col-3">Age</th>
+            <th class="col-3">Actions</th>
+            </div>
+
+        </tr>
+    </thead>
+    <tbody>
+        <!-- loop through our list of parties. For each party display their info-->
+        <!-- Also include links that allow the user to edit and manage each party-->
+        @foreach (var course in Model)
+        {
+
+            <tr>
+                <td>@course.FirstName</td>
+                <td>@course.LastName</td>
+                <td>
+                    @course.DateOfBirth?.ToString("dd/MM/yyyy")</td>
+                <td>
+
+                    <a asp-controller="Student" asp-action="GetStudentById" asp-route-id="@course.StudentId">Details</a>
+                    <span class="mx-1">|</span>
+                    <a asp-controller="Student" asp-action="GetEditRequestStudentById" asp-route-id="@course.StudentId">Edit</a>
+                    <span class="mx-1">|</span>
+                    <a asp-controller="Student" asp-action="DeleteStudentById" asp-route-id="@course.StudentId">Delete</a>
+
+                    <!-- call on partial view for actions-->
+                    @*<partial name="_CourseActionLinks" model="@course" />*@
+                </td>
+            </tr>
+
+
+        }
+    </tbody>
+
+</table>

@@ -22,7 +22,7 @@ namespace SchoolPracticeDB.Entities
         }
 
         [Required(ErrorMessage = "Please enter a year.")]
-        [Range(1850, int.MaxValue, ErrorMessage = "Year must be after 1850.")]
+        //[Range(1850, int.MaxValue, ErrorMessage = "Year must be after 1850.")]
         public DateTime? DateOfBirth { get; set; }
 
         public ICollection<Enrollment>? Enrollments { get; set; }

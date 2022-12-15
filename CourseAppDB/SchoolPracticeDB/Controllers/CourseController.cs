@@ -36,8 +36,6 @@ namespace SchoolPracticeDB.Controllers
                 .Include(c => c.Books)
                 .ToList();
 
-
-
             return View("CourseItems", courses);
         }
 
@@ -113,8 +111,18 @@ namespace SchoolPracticeDB.Controllers
 
             Course course = _courseDbContext.Courses.Find(id);
 
-            return View(course);
+            return View("DeleteCourse", course);
 
+        }
+
+        [HttpPost()]
+        public IActionResult DeleteCourse(Course course)
+        {
+            // The only real field passed here in the POST body
+            // was the Id field but that is all that is needed to delete:
+            _courseDbContext.Courses.Remove(course);
+            _courseDbContext.SaveChanges();
+            return RedirectToAction("GetAllCourses", "Course");
         }
 
         [HttpGet("/courses/{id}")]

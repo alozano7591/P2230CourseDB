@@ -1,0 +1,92 @@
+﻿@model StudentDetailsViewModel
+
+@{
+    ViewData["Title"] = Model.ActiveStudent.FullName;
+}
+
+<div class="row">
+    <p>
+        @*<em>@Model.ActiveCourse.CourseName</em> is a <a href="#">@Model.ActiveCourse.Genre.Name</a>
+        that debuted in @Model.ActiveCourse.Year.*@
+
+        <em>Viewing student @Model.ActiveStudent.FullName</em>.
+    </p>
+</div>
+<div class="row">
+    <div>
+        @if (Model.ActiveStudent.Enrollments != null)
+        {
+            if (Model.ActiveStudent.Enrollments.Count > 0)
+            {
+                <h6>The average mark for this student is @Model.HighestMark?.ToString("0.0")</h6>
+
+                <h6>The highest mark for this student is @Model.AverageMark?.ToString("0.0")</h6>
+            }
+        }
+
+        <p>Enrolled courses</p>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Course Name</th>
+                    <th>Credits</th>
+                    <th>Mark</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var enrollment in Model.ActiveStudent.Enrollments)
+                {
+                    <tr>
+                        <td>@enrollment.Course.CourseName</td>
+                        <td>@enrollment.Course.Credits</td>
+                        <td>@enrollment.Grade</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <h6>Add a new Course:</h6>
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <form class="row" asp-controller="Student"
+          asp-action="AddStudentEnrollmentById" asp-route-id="@Model.ActiveStudent.StudentId"
+          method="post" enctype="application/x-www-form-urlencoded">
+        <div class="col-sm-4">
+
+            <!-- a dropbox of student course options: -->
+            <div class="form-group">
+                <label asp-for="NewEnrollment.CourseId">Course</label>
+                <select asp-for="NewEnrollment.CourseId" class="form-control">
+                    <option value="">Select a course..</option>
+                    <!-- loop thru or list of all genres:-->
+                    @foreach (Course course in Model.Courses)
+                    {
+                        <option value="@course.CourseId">@course.CourseName</option>
+                    }
+                </select>
+            </div>
+
+        </div>
+
+        <div class="col-sm-4">
+            <label class="visually-hidden" asp-for="NewEnrollment.Grade">Grade</label>
+            <div class="input-group">
+                <div class="input-group-text">Grade</div>
+                <input type="text" class="form-control" asp-for="NewEnrollment.Grade" />
+            </div>
+        </div>
+
+        <!-- Seems to only work when adding hidden info for activestudent name and credits -->
+        <input type="hidden" asp-for="ActiveStudent.FirstName" />
+        <input type="hidden" asp-for="ActiveStudent.LastName" />
+        <input type="hidden" asp-for="ActiveStudent.DateOfBirth" />
+
+        <!-- Add th Id (i.e. PK) field as a hidden input element: -->
+        <input type="hidden" asp-for="ActiveStudent.StudentId" />
+
+        <div class="col-sm-2">
+            <button type="submit" class="btn btn-primary">Add Enrollment</button>
+        </div>
+    </form>
+</div>
