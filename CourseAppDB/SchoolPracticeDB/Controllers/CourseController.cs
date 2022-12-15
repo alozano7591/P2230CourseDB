@@ -107,6 +107,16 @@ namespace SchoolPracticeDB.Controllers
 
         }
 
+        [HttpGet("/courses/{id}/get-delete")]
+        public IActionResult DeleteCourseById(int id)
+        {
+
+            Course course = _courseDbContext.Courses.Find(id);
+
+            return View(course);
+
+        }
+
         [HttpGet("/courses/{id}")]
         public IActionResult GetCourseById(int id)
         {

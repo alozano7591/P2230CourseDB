@@ -1,0 +1,20 @@
+﻿@model CourseViewModel
+
+@{
+    ViewData["Title"] = "Delete a course";
+}
+
+<div>
+    <h4>Confirm delete:</h4>
+    <p>Are you sure you want to delete @Model.ActiveCourse.CourseName?</p>
+</div>
+
+<!-- set up the form POST request to be handler by our Delete action on our Student controller: -->
+<form asp-controller="Course" asp-action="Delete" method="post" enctype="application/x-www-form-urlencoded">
+    <!-- Add th Id (i.e. PK) field as a hidden input element: -->
+    <input type="hidden" asp-for="ActiveCourse.CourseId" />
+
+    <!-- submit & cancel buttons: -->
+    <button type="submit" class="btn btn-primary">Delete</button>
+    <a asp-controller="Course" asp-action="CourseItems" class="btn btn-primary">Cancel</a>
+</form>
