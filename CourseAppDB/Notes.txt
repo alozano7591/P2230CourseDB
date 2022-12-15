@@ -19,3 +19,9 @@ Diagram something like this:
 
 
 courses linked to students thru enrollment
+
+
+THINGS TO DO:
+- get tag helpers working with last action message 
+- get passwords and authorization working
+- see if you can find out how to check if input email or number already exists on db (initialization attribute maybe?)
