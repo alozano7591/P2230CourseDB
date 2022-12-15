@@ -31,6 +31,7 @@ namespace SchoolPracticeDB.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -96,14 +97,14 @@ namespace SchoolPracticeDB.Migrations
 
             migrationBuilder.InsertData(
                 table: "Students",
-                columns: new[] { "StudentId", "DateOfBirth", "FirstName", "LastName" },
+                columns: new[] { "StudentId", "DateOfBirth", "Email", "FirstName", "LastName" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2010, 5, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), "Frank", "Brown" },
-                    { 2, new DateTime(2011, 11, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), "Laura", "White" },
-                    { 3, new DateTime(2012, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), "Brian", "Brampton" },
-                    { 4, new DateTime(1988, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), "Sarah", "Thompson" },
-                    { 5, new DateTime(2001, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bobby", "Grownie" }
+                    { 1, new DateTime(2010, 5, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), "fbrown@gmail.com", "Frank", "Brown" },
+                    { 2, new DateTime(2011, 11, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), "CrazyLaura@gmail.com", "Laura", "White" },
+                    { 3, new DateTime(2012, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), "thebrampton@gmail.com", "Brian", "Brampton" },
+                    { 4, new DateTime(1988, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), "thompsonsarah@gmail.com", "Sarah", "Thompson" },
+                    { 5, new DateTime(2001, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), "bobgrownie223@gmail.com", "Bobby", "Grownie" }
                 });
 
             migrationBuilder.InsertData(

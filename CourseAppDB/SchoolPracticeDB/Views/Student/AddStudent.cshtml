@@ -8,20 +8,33 @@
     <div class="text-danger" asp-validation-summary="All"></div>
 
     <!-- Our partial view addition -->
-    <div class="form-group">
-        <label asp-for="ActiveStudent.FirstName">First Name</label>
-        <input type="text" asp-for="ActiveStudent.FirstName" class="form-control" />
-    </div>
+    <partial name="_StudentForm" model="@Model" />
 
-    <div class="form-group">
-        <label asp-for="ActiveStudent.LastName">Last Name</label>
-        <input type="text" asp-for="ActiveStudent.LastName" class="form-control" />
-    </div>
-
-    <div class="form-group">
-        <label asp-for="ActiveStudent.DateOfBirth">Date of Birth</label>
-        <input type="text" asp-for="ActiveStudent.DateOfBirth" class="form-control" />
-    </div>
+    @*<div>*@
+    @*<label class="visually-hidden" asp-for="ActiveStudent.DateOfBirth">Date of Birth</label>
+    <div class="input-group">
+        <div class="input-group-text col-2">Date of Birth</div>
+        <input type="datetime" id="datepicker" class="form-control col-4" asp-for="ActiveStudent.DateOfBirth" />
+    </div>*@
+        @section Scripts
+            {
+            <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+            <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+            <script>
+                $(function () {
+                    //This gives us the fancy date picker with a nice format, ability to change month and year individually,
+                    // range of 60years, and restricts our users from picking dates in the future
+                    $("#datepicker").datepicker({
+                        dateFormat: "dd/MM/yy",
+                        changeMonth: true,
+                        changeYear: true,
+                        yearRange: "-30:+60"
+                    });
+                });
+            </script>
+    }
+@*</div>*@
 
     <button type="submit" class="btn btn-primary">Add</button>
     <a asp-controller="Student" asp-action="GetAllStudents" class="btn btn-primary">Cancel</a>

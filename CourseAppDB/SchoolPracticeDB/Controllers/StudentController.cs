@@ -110,5 +110,52 @@ namespace SchoolPracticeDB.Controllers
             }
 
         }
+
+        [HttpGet("/students/add-request")]
+        public IActionResult GetAddStudentRequest()
+        {
+
+            StudentViewModel studentViewModel = new StudentViewModel()
+            {
+
+                ActiveStudent = new Student()
+
+            };
+
+            return View("AddStudent", studentViewModel);
+        }
+
+        [HttpPost("/students")]
+        public IActionResult AddNewStudent(StudentViewModel studentViewModel)
+        {
+
+            //checks if email already exists in db
+            if (studentViewModel.ActiveStudent.Email != null)
+            {
+                var emailAlreadyExists = _courseDbContext.Students.Any(s => s.Email == studentViewModel.ActiveStudent.Email);
+                if(emailAlreadyExists)
+                {
+                    ModelState.AddModelError("Email", "Student with this email already exists");
+                }
+                
+            }
+
+            if (ModelState.IsValid)
+            {
+                
+                _courseDbContext.Students.Add(studentViewModel.ActiveStudent);
+                _courseDbContext.SaveChanges();
+
+                TempData["LastActionMessage"] = $"The student \"{studentViewModel.ActiveStudent.FullName}\" was added.";
+                return RedirectToAction("GetAllCourses", "Course");
+            }
+            else
+            {
+
+                //remember to return the view AND the proper model for correction
+                return View("AddStudent", studentViewModel);
+            }
+
+        }
     }
 }

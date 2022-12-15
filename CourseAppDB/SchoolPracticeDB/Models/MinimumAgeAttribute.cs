@@ -14,6 +14,10 @@ namespace SchoolPracticeDB.Models
 
         public override bool IsValid(object? value)
         {
+            if(value == null)
+            {
+                return false;
+            }
 
             DateTime date;
             if(DateTime.TryParse(value.ToString(), out date))

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Microsoft.EntityFrameworkCore.Design;
 using SchoolPracticeDB.Entities;
 using System.Text.RegularExpressions;
 using SchoolPracticeDB.Models;

@@ -14,6 +14,10 @@ namespace SchoolPracticeDB.Entities
         [Required(ErrorMessage = "Please enter a last name.")]
         public string? LastName { get; set; }
 
+        //[Required(ErrorMessage = "Please enter an email")]
+        [EmailAddress]
+        public string? Email { get; set; }  
+
         public string? FullName
         {
             get
@@ -25,6 +29,7 @@ namespace SchoolPracticeDB.Entities
         //[Range(1850, int.MaxValue, ErrorMessage = "Year must be after 1850.")]
         [Required(ErrorMessage = "Please enter a year.")]
         [MinimumAge(12, ErrorMessage = "Must be 12 or older")]
+        [DataType(DataType.Date)]
         public DateTime? DateOfBirth { get; set; }
 
         public ICollection<Enrollment>? Enrollments { get; set; }

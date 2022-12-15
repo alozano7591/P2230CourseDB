@@ -5,14 +5,14 @@
 }
 
 <div>
-    <p>See all the <a asp-controller="Course" asp-action="GetAllStudents">courses</a>.</p>
+    <p>See all the <a asp-controller="Course" asp-action="GetAllCourses">courses</a>.</p>
 </div>
 
 <div class="row">
 
     <div class="col-2">
         <!-- link that allows the creation of a new db object-->
-        <a asp-controller="Course" asp-action="GetAddStudentRequest">Add new student</a>
+        <a asp-controller="Student" asp-action="GetAddStudentRequest">Add new student</a>
     </div>
 
     <div class="col-8">
@@ -27,10 +27,11 @@
     <thead>
         <tr>
             <div class="row">
-            <th class="col-3">First Name</th>
-            <th class="col-3">Last Name</th>
-            <th class="col-3">Age</th>
-            <th class="col-3">Actions</th>
+            <th class="col-2">First Name</th>
+            <th class="col-2">Last Name</th>
+            <th class="col-2">Email</th>
+            <th class="col-2">Age</th>
+            <th class="col-2">Actions</th>
             </div>
 
         </tr>
@@ -44,6 +45,7 @@
             <tr>
                 <td>@course.FirstName</td>
                 <td>@course.LastName</td>
+                <td>@course.Email</td>
                 <td>
                     @course.DateOfBirth?.ToString("dd/MM/yyyy")</td>
                 <td>

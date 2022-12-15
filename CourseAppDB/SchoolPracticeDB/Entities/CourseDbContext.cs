@@ -56,23 +56,27 @@ namespace SchoolPracticeDB.Entities
                     StudentId = 1,
                     FirstName = "Frank", 
                     LastName = "Brown", 
+                    Email = "fbrown@gmail.com",
                     DateOfBirth = new DateTime(2010, 05, 09)},
                 new Student() {
                     StudentId = 2,
                     FirstName = "Laura",
                     LastName = "White",
+                    Email = "CrazyLaura@gmail.com",
                     DateOfBirth = new DateTime(2011, 11, 04)
                 },
                 new Student() { 
                     StudentId = 3,
                     FirstName = "Brian",
                     LastName = "Brampton",
+                    Email = "thebrampton@gmail.com",
                     DateOfBirth = new DateTime(2012, 01, 02)
                 },
                 new Student() { 
                     StudentId = 4,
                     FirstName = "Sarah",
                     LastName = "Thompson",
+                    Email = "thompsonsarah@gmail.com",
                     DateOfBirth = new DateTime(1988, 01, 19)
                 },
                 new Student()
@@ -80,6 +84,7 @@ namespace SchoolPracticeDB.Entities
                     StudentId = 5,
                     FirstName = "Bobby",
                     LastName = "Grownie",
+                    Email = "bobgrownie223@gmail.com",
                     DateOfBirth = new DateTime(2001, 01, 19)
                 }
 

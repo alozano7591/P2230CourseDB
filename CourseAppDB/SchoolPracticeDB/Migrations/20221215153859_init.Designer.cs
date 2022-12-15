@@ -12,7 +12,7 @@ using SchoolPracticeDB.Entities;
 namespace SchoolPracticeDB.Migrations
 {
     [DbContext(typeof(CourseDbContext))]
-    [Migration("20221214193315_init")]
+    [Migration("20221215153859_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -205,6 +205,9 @@ namespace SchoolPracticeDB.Migrations
                         .IsRequired()
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -222,6 +225,7 @@ namespace SchoolPracticeDB.Migrations
                         {
                             StudentId = 1,
                             DateOfBirth = new DateTime(2010, 5, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "fbrown@gmail.com",
                             FirstName = "Frank",
                             LastName = "Brown"
                         },
@@ -229,6 +233,7 @@ namespace SchoolPracticeDB.Migrations
                         {
                             StudentId = 2,
                             DateOfBirth = new DateTime(2011, 11, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "CrazyLaura@gmail.com",
                             FirstName = "Laura",
                             LastName = "White"
                         },
@@ -236,6 +241,7 @@ namespace SchoolPracticeDB.Migrations
                         {
                             StudentId = 3,
                             DateOfBirth = new DateTime(2012, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "thebrampton@gmail.com",
                             FirstName = "Brian",
                             LastName = "Brampton"
                         },
@@ -243,6 +249,7 @@ namespace SchoolPracticeDB.Migrations
                         {
                             StudentId = 4,
                             DateOfBirth = new DateTime(1988, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "thompsonsarah@gmail.com",
                             FirstName = "Sarah",
                             LastName = "Thompson"
                         },
@@ -250,6 +257,7 @@ namespace SchoolPracticeDB.Migrations
                         {
                             StudentId = 5,
                             DateOfBirth = new DateTime(2001, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "bobgrownie223@gmail.com",
                             FirstName = "Bobby",
                             LastName = "Grownie"
                         });
