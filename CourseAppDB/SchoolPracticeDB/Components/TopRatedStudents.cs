@@ -22,7 +22,7 @@ namespace SchoolPracticeDB.Components
                 .Where(s => s.Enrollments.Average(e => e.Grade).GetValueOrDefault() >= lowestAverage)
                 .OrderBy(s => s.Enrollments.Average(e =>e.Grade).GetValueOrDefault())
                 .ToList();
-                ;
+                
 
             TopRatedStudentsViewModel topRatedStudentsViewModel = new TopRatedStudentsViewModel()
             {
