@@ -1,12 +1,12 @@
 # Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+This is my final test. This is not the same as the version that I published on azure.
 
 # Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+To Use:
+1.	Download 
+2.	Open in visual studio
+3.	run command in db console "update-database"
+4.	run command in db console "add-migration migrationName"
 
 # Build and Test
 TODO: Describe and show how to build your code and run the tests. 
