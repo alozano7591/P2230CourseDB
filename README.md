@@ -1,5 +1,5 @@
 # Introduction 
-This is my final test. This is not the same as the version that I published on azure.
+This was made while preparing for my final test. Features SQL relationship based databases.
 
 # Getting Started
 To Use:
